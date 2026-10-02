@@ -22,7 +22,7 @@ Then open http://localhost:8123.
 ## Updating the guide
 
 - **Group gear:** the "Who's bringing it" column is in `index.html`. Replace `<span class="open">Open</span>` with a name.
-- **Weather:** loads the National Weather Service forecast for each campsite when the page opens. NWS forecasts about 7 days out; before that the cards show the park's October averages. Nothing to update.
+- **Weather:** loads a forecast for each campsite when the page opens: National Weather Service once a day is within about 7 days, Open-Meteo before that. Nothing to update.
 
 ## Swapping photos
 

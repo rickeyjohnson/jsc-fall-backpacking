@@ -130,32 +130,19 @@
 })();
 
 // ---------- Weather ----------
-// Live forecast from Open-Meteo for each camp. Each card shows that day's high
-// and the next morning's low at the spot where we sleep.
+// National Weather Service forecast (the source the park's weather page uses)
+// for each campsite. A card shows that day's high and the overnight low at the
+// spot where we sleep. NWS only forecasts about 7 days out, so until a day is
+// covered the card shows the park's October averages instead.
 (function () {
   const cards = [...document.querySelectorAll("[data-wx-day]")];
   const status = document.querySelector("[data-wx-status]");
   if (!cards.length) return;
 
-  // Order matters: data-wx-loc on each card indexes into this list.
-  const places = [
-    { name: "Elkmont", lat: 35.6537, lon: -83.5802 },
-    { name: "Campsite #26", lat: 35.6094, lon: -83.592 },
-    { name: "Double Spring Gap", lat: 35.5653, lon: -83.5426 },
-    { name: "Campsite #24", lat: 35.6158, lon: -83.5297 },
-  ];
-
-  const CONDITIONS = {
-    0: "Clear", 1: "Mostly clear", 2: "Partly cloudy", 3: "Cloudy",
-    45: "Fog", 48: "Freezing fog",
-    51: "Light drizzle", 53: "Drizzle", 55: "Heavy drizzle",
-    56: "Freezing drizzle", 57: "Freezing drizzle",
-    61: "Light rain", 63: "Rain", 65: "Heavy rain",
-    66: "Freezing rain", 67: "Freezing rain",
-    71: "Light snow", 73: "Snow", 75: "Heavy snow", 77: "Snow grains",
-    80: "Rain showers", 81: "Rain showers", 82: "Heavy showers",
-    85: "Snow showers", 86: "Snow showers",
-    95: "Thunderstorms", 96: "Thunderstorms with hail", 99: "Thunderstorms with hail",
+  // NPS October averages (high / low): Gatlinburg vs. the crest
+  const TYPICAL = {
+    valley: { hi: 73, lo: 43, where: "Gatlinburg" },
+    crest: { hi: 53, lo: 38, where: "the crest" },
   };
 
   const set = (card, key, text) => {
@@ -163,52 +150,95 @@
     if (el) el.textContent = text;
   };
 
-  function fallback(message) {
-    cards.forEach((card) => {
-      set(card, "cond", "Forecast not out yet");
-      set(card, "hi", "–");
-      set(card, "lo", "–");
-      set(card, "rain", "–");
-    });
-    status.textContent = message;
+  // NWS gives phrases like "Slight Chance Showers And Thunderstorms then Mostly Cloudy".
+  // Keep the first part, in sentence case.
+  const tidy = (text) => {
+    const first = text.split(" then ")[0].toLowerCase();
+    return first.charAt(0).toUpperCase() + first.slice(1);
+  };
+
+  function iconFor(text) {
+    const t = text.toLowerCase();
+    if (t.includes("thunder")) return "storm";
+    if (/snow|flurr|sleet|ice/.test(t)) return "snow";
+    if (/rain|shower|drizzle/.test(t)) return "rain";
+    if (/fog|haze|smoke/.test(t)) return "fog";
+    if (/partly|mostly cloudy/.test(t)) return "partly";
+    if (/cloudy|overcast/.test(t)) return "cloud";
+    if (/sunny|clear/.test(t)) return "sun";
+    return "cloud";
   }
 
-  const params = new URLSearchParams({
-    latitude: places.map((p) => p.lat).join(","),
-    longitude: places.map((p) => p.lon).join(","),
-    daily: "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
-    temperature_unit: "fahrenheit",
-    timezone: "America/New_York",
-    start_date: "2026-10-10",
-    end_date: "2026-10-14",
-  });
+  const dayLabel = (iso, offsetDays) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return new Date(Date.UTC(y, m - 1, d - offsetDays, 12)).toLocaleDateString("en-US", {
+      weekday: "short", month: "short", day: "numeric", timeZone: "UTC",
+    });
+  };
 
-  fetch(`https://api.open-meteo.com/v1/forecast?${params}`)
-    .then((res) => res.json())
-    .then((data) => {
-      if (!Array.isArray(data)) throw new Error(data.reason || "Unexpected response");
+  function showTypical(card) {
+    const typical = TYPICAL[card.dataset.wxZone] || TYPICAL.valley;
+    set(card, "cond", "Not forecast yet");
+    set(card, "hi-label", "Typical high");
+    set(card, "lo-label", "Typical low");
+    set(card, "hi", `${typical.hi}°`);
+    set(card, "lo", `${typical.lo}°`);
+    set(card, "rain", "–");
+    const note = card.querySelector('[data-wx="note"]');
+    note.textContent = `The forecast posts around ${dayLabel(card.dataset.wxDay, 6)}. Until then, these are the park's October averages for ${typical.where}.`;
+    note.hidden = false;
+  }
 
-      cards.forEach((card) => {
-        const daily = data[Number(card.dataset.wxLoc)].daily;
-        const i = daily.time.indexOf(card.dataset.wxDay);
-        if (i < 0) return;
+  function showForecast(card, day, night) {
+    const main = day || night;
+    const pops = [day, night]
+      .map((p) => p && p.probabilityOfPrecipitation && p.probabilityOfPrecipitation.value)
+      .filter((v) => v != null);
 
-        const hi = daily.temperature_2m_max[i];
-        const lo = daily.temperature_2m_min[i + 1];
-        const rain = daily.precipitation_probability_max[i];
+    set(card, "cond", tidy(main.shortForecast));
+    set(card, "hi-label", "High");
+    set(card, "lo-label", "Overnight low");
+    set(card, "hi", day ? `${day.temperature}°` : "–");
+    set(card, "lo", night ? `${night.temperature}°` : "–");
+    set(card, "rain", pops.length ? `${Math.max(...pops)}%` : "–");
+    card.querySelector('[data-wx="icon"]').setAttribute("href", `#wx-${iconFor(tidy(main.shortForecast))}`);
+    card.querySelector('[data-wx="note"]').hidden = true;
+    card.classList.add("is-loaded");
+  }
 
-        set(card, "cond", CONDITIONS[daily.weather_code[i]] || "–");
-        set(card, "hi", hi == null ? "–" : `${Math.round(hi)}°`);
-        set(card, "lo", lo == null ? "–" : `${Math.round(lo)}°`);
-        set(card, "rain", rain == null ? "–" : `${rain}%`);
-      });
+  async function forecastFor(card) {
+    const point = await fetch(
+      `https://api.weather.gov/points/${card.dataset.wxLat},${card.dataset.wxLon}`
+    ).then((r) => r.json());
+    const forecast = await fetch(point.properties.forecast).then((r) => r.json());
+    return forecast.properties.periods;
+  }
 
+  Promise.all(
+    cards.map((card) =>
+      forecastFor(card).then((periods) => {
+        const onDay = periods.filter((p) => p.startTime.slice(0, 10) === card.dataset.wxDay);
+        const day = onDay.find((p) => p.isDaytime);
+        const night = onDay.find((p) => !p.isDaytime);
+        if (day || night) {
+          showForecast(card, day, night);
+          return true;
+        }
+        showTypical(card);
+        return false;
+      })
+    )
+  )
+    .then((results) => {
       const now = new Date().toLocaleString("en-US", {
         weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit",
       });
-      status.textContent = `Forecast from Open-Meteo, checked ${now}.`;
+      status.textContent = results.some(Boolean)
+        ? `National Weather Service forecast, checked ${now}.`
+        : `The trip is more than a week out, so these are the park's October averages. Checked ${now}.`;
     })
     .catch(() => {
-      fallback("The live forecast isn't available right now. It covers about two weeks ahead, so until then use the October averages below.");
+      cards.forEach(showTypical);
+      status.textContent = "Couldn't reach the National Weather Service right now, so these are the park's October averages.";
     });
 })();

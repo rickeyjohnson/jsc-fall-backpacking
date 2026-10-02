@@ -13,6 +13,15 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="wx-sun" viewBox="0 0 48 48"><circle cx="24" cy="24" r="9" fill="#f2c94c"/><g stroke="#f2c94c" stroke-width="3" stroke-linecap="round"><path d="M24 5v5M24 38v5M5 24h5M38 24h5M10.6 10.6l3.5 3.5M33.9 33.9l3.5 3.5M10.6 37.4l3.5-3.5M33.9 14.1l3.5-3.5"/></g></symbol>
+    <symbol id="wx-partly" viewBox="0 0 48 48"><circle cx="18" cy="17" r="7" fill="#f2c94c"/><g stroke="#f2c94c" stroke-width="2.6" stroke-linecap="round"><path d="M18 3.5v3.5M4.5 17H8M8.5 7.5l2.5 2.5M27.5 7.5L25 10"/></g><path d="M15 39h21a8 8 0 0 0 .6-16A11 11 0 0 0 15.8 26 6.5 6.5 0 0 0 15 39z" fill="#e4e8e1"/></symbol>
+    <symbol id="wx-cloud" viewBox="0 0 48 48"><path d="M13 37h23a9 9 0 0 0 .7-18A12 12 0 0 0 13.9 22.5 7.3 7.3 0 0 0 13 37z" fill="#e4e8e1"/></symbol>
+    <symbol id="wx-fog" viewBox="0 0 48 48"><path d="M14 28h21a8 8 0 0 0 .6-16A11 11 0 0 0 14.8 15.2 6.4 6.4 0 0 0 14 28z" fill="#e4e8e1"/><g stroke="#b7c0b2" stroke-width="3" stroke-linecap="round"><path d="M9 34h30M13 40h24"/></g></symbol>
+    <symbol id="wx-rain" viewBox="0 0 48 48"><path d="M13 29h23a9 9 0 0 0 .7-18A12 12 0 0 0 13.9 14.5 7.3 7.3 0 0 0 13 29z" fill="#e4e8e1"/><g stroke="#8ec5ea" stroke-width="3" stroke-linecap="round"><path d="M17 34l-2 6M25 34l-2 6M33 34l-2 6"/></g></symbol>
+    <symbol id="wx-storm" viewBox="0 0 48 48"><path d="M13 29h23a9 9 0 0 0 .7-18A12 12 0 0 0 13.9 14.5 7.3 7.3 0 0 0 13 29z" fill="#e4e8e1"/><path d="M25 30l-6 9h5l-2 7 8-10h-5l3-6z" fill="#f2c94c"/></symbol>
+    <symbol id="wx-snow" viewBox="0 0 48 48"><path d="M13 29h23a9 9 0 0 0 .7-18A12 12 0 0 0 13.9 14.5 7.3 7.3 0 0 0 13 29z" fill="#e4e8e1"/><g fill="#ffffff"><circle cx="17" cy="37" r="2"/><circle cx="25" cy="41" r="2"/><circle cx="33" cy="37" r="2"/></g></symbol>
+  </svg>
   <a class="skip" href="#gear">Skip to the packing list</a>
 
   <header class="nav" id="nav">
@@ -30,9 +39,9 @@
       <a href="#permits">Permits</a>
       <a href="#weather">Weather</a>
       <a href="#schedule">Schedule</a>
-      <a href="#safety">Safety</a>
       <a href="#food">Food</a>
       <a href="#plan-a">Route</a>
+      <a href="#safety">Safety</a>
       <a class="nav__pill" href="#gear">Packing list</a>
     </nav>
     <button class="nav__menu-btn" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
@@ -42,11 +51,10 @@
       <a href="#permits">Permits &amp; fees</a>
       <a href="#weather">Weather &amp; daylight</a>
       <a href="#schedule">Schedule</a>
-      <a href="#safety">Safety &amp; check-in</a>
       <a href="#food">Food &amp; water</a>
       <a href="#plan-a">The route</a>
-      <a href="#backup">Backup route</a>
-      <a href="#compare">Plan A vs. backup</a>
+      <a href="#safety">Where we'll be &amp; who to call</a>
+      <a href="#links">Helpful links</a>
     </div>
   </header>
 
@@ -59,12 +67,12 @@
           <span class="hero__line">JSC fall backpacking</span>
           <span class="hero__line hero__line--soft">in Great Smoky Mountains National Park</span>
         </h1>
-        <p class="hero__lede">Four days and three nights on a loop from Elkmont up to the Appalachian Trail and back down along the Little River. This page has everything: what to pack, permits, weather, the schedule, and how families can reach us.</p>
+        <p class="hero__lede">Four days and three nights on a loop from Elkmont up to the Appalachian Trail and back down along the Little River. This page has everything: what to pack, permits, weather, the schedule, and who to call in an emergency.</p>
         <dl class="hero__facts">
           <div><dt>Dates</dt><dd>Oct 10–13, 2026</dd></div>
           <div><dt>Route</dt><dd>26.1 mi loop</dd></div>
           <div><dt>Group</dt><dd>5–6 hikers</dd></div>
-          <div><dt>Home</dt><dd>Tue, ~5:30 pm</dd></div>
+          <div><dt>Home</dt><dd>Tue, ~7 pm</dd></div>
         </dl>
         <p class="hero__byline">Routes scouted by <strong>Rickey Johnson</strong></p>
       </div>
@@ -95,44 +103,74 @@
             <h3 class="gear__heading">Must bring</h3>
             <div class="gear__groups">
               <div class="gear__group">
-                <h4>Pack and sleep</h4>
+                <h4>Pack, shelter and sleep</h4>
                 <ul class="checklist" data-required>
                   <li><label class="check"><input type="checkbox" data-gear="backpack"><span class="check__box" aria-hidden="true"></span><span class="check__text">Backpack, 50–65 liters</span></label></li>
                   <li><label class="check"><input type="checkbox" data-gear="liner"><span class="check__box" aria-hidden="true"></span><span class="check__text">Pack liner or trash compactor bag to keep things dry</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="tent"><span class="check__box" aria-hidden="true"></span><span class="check__text">Tent with poles and stakes <span class="check__note">Nights 1 and 3. Night 2 is in the shelter.</span></span></label></li>
                   <li><label class="check"><input type="checkbox" data-gear="bag"><span class="check__box" aria-hidden="true"></span><span class="check__text">Sleeping bag rated 30°F or warmer</span></label></li>
                   <li><label class="check"><input type="checkbox" data-gear="pad"><span class="check__box" aria-hidden="true"></span><span class="check__text">Insulated sleeping pad</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="tent"><span class="check__box" aria-hidden="true"></span><span class="check__text">Your share of a tent (see group gear)</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="headlamp"><span class="check__box" aria-hidden="true"></span><span class="check__text">Headlamp and spare batteries</span></label></li>
                 </ul>
               </div>
               <div class="gear__group">
-                <h4>Clothes (no cotton)</h4>
+                <h4>Clothes for hiking (no cotton)</h4>
                 <ul class="checklist" data-required>
                   <li><label class="check"><input type="checkbox" data-gear="shoes"><span class="check__box" aria-hidden="true"></span><span class="check__text">Broken-in hiking boots or trail runners</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="socks"><span class="check__box" aria-hidden="true"></span><span class="check__text">3 pairs of wool or synthetic socks</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="hike-clothes"><span class="check__box" aria-hidden="true"></span><span class="check__text">Hiking shirt and pants or shorts</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="base"><span class="check__box" aria-hidden="true"></span><span class="check__text">Base layer top and bottom to sleep in</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="fleece"><span class="check__box" aria-hidden="true"></span><span class="check__text">Fleece or other midlayer</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="puffy"><span class="check__box" aria-hidden="true"></span><span class="check__text">Puffy jacket</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="rain"><span class="check__box" aria-hidden="true"></span><span class="check__text">Rain jacket</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="hat"><span class="check__box" aria-hidden="true"></span><span class="check__text">Warm hat and gloves</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="shirt"><span class="check__box" aria-hidden="true"></span><span class="check__text">Wool or synthetic hiking shirt</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="pants"><span class="check__box" aria-hidden="true"></span><span class="check__text">Hiking pants or shorts</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="underwear"><span class="check__box" aria-hidden="true"></span><span class="check__text">Wool or synthetic underwear</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="socks"><span class="check__box" aria-hidden="true"></span><span class="check__text">3 pairs of wool or synthetic hiking socks</span></label></li>
                 </ul>
               </div>
               <div class="gear__group">
-                <h4>Water and food</h4>
+                <h4>Clothes for camp and sleep</h4>
+                <ul class="checklist" data-required>
+                  <li><label class="check"><input type="checkbox" data-gear="base"><span class="check__box" aria-hidden="true"></span><span class="check__text">Long underwear top and bottoms to sleep in</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="sleep-socks"><span class="check__box" aria-hidden="true"></span><span class="check__text">Dry socks used only for sleeping</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="puffy"><span class="check__box" aria-hidden="true"></span><span class="check__text">Puffy jacket</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="hat"><span class="check__box" aria-hidden="true"></span><span class="check__text">Warm hat</span></label></li>
+                </ul>
+              </div>
+              <div class="gear__group">
+                <h4>Rain and cold</h4>
+                <ul class="checklist" data-required>
+                  <li><label class="check"><input type="checkbox" data-gear="rain"><span class="check__box" aria-hidden="true"></span><span class="check__text">Rain jacket</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="fleece"><span class="check__box" aria-hidden="true"></span><span class="check__text">Fleece or other midlayer</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="gloves"><span class="check__box" aria-hidden="true"></span><span class="check__text">Warm gloves</span></label></li>
+                </ul>
+              </div>
+              <div class="gear__group">
+                <h4>Kitchen and food</h4>
+                <ul class="checklist" data-required>
+                  <li><label class="check"><input type="checkbox" data-gear="food"><span class="check__box" aria-hidden="true"></span><span class="check__text">All your food (see the food plan)</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="spoon"><span class="check__box" aria-hidden="true"></span><span class="check__text">Long spoon or spork</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="mug"><span class="check__box" aria-hidden="true"></span><span class="check__text">Mug or bowl</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="lighter"><span class="check__box" aria-hidden="true"></span><span class="check__text">Lighter</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="food-bag"><span class="check__box" aria-hidden="true"></span><span class="check__text">Stuff sack or odor-proof bag for the bear cables</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="trash"><span class="check__box" aria-hidden="true"></span><span class="check__text">Zip bag for packing out trash</span></label></li>
+                </ul>
+              </div>
+              <div class="gear__group">
+                <h4>Water</h4>
                 <ul class="checklist" data-required>
                   <li><label class="check"><input type="checkbox" data-gear="water"><span class="check__box" aria-hidden="true"></span><span class="check__text">Bottles or a bladder that hold 3 liters total</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="food"><span class="check__box" aria-hidden="true"></span><span class="check__text">All your food (see the food plan)</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="food-bag"><span class="check__box" aria-hidden="true"></span><span class="check__text">Stuff sack or odor-proof bag for the bear cables</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="kitchen"><span class="check__box" aria-hidden="true"></span><span class="check__text">Long spoon, mug or bowl, and a lighter</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="tablets"><span class="check__box" aria-hidden="true"></span><span class="check__text">A few purification tablets, in case a filter fails</span></label></li>
                 </ul>
               </div>
               <div class="gear__group">
-                <h4>Safety and navigation</h4>
+                <h4>Navigation</h4>
                 <ul class="checklist" data-required>
-                  <li><label class="check"><input type="checkbox" data-gear="headlamp"><span class="check__box" aria-hidden="true"></span><span class="check__text">Headlamp and spare batteries</span></label></li>
                   <li><label class="check"><input type="checkbox" data-gear="phone"><span class="check__box" aria-hidden="true"></span><span class="check__text">Phone with the AllTrails route downloaded for offline use</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="route-copy"><span class="check__box" aria-hidden="true"></span><span class="check__text">Screenshot of the route and this page, for when there's no signal</span></label></li>
+                </ul>
+              </div>
+              <div class="gear__group">
+                <h4>First aid and emergency</h4>
+                <ul class="checklist" data-required>
+                  <li><label class="check"><input type="checkbox" data-gear="first-aid"><span class="check__box" aria-hidden="true"></span><span class="check__text">Blister kit, bandages and a pain reliever</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="meds"><span class="check__box" aria-hidden="true"></span><span class="check__text">Your prescription meds, plus a couple of extra days</span></label></li>
                   <li><label class="check"><input type="checkbox" data-gear="whistle"><span class="check__box" aria-hidden="true"></span><span class="check__text">Whistle</span></label></li>
-                  <li><label class="check"><input type="checkbox" data-gear="first-aid"><span class="check__box" aria-hidden="true"></span><span class="check__text">Personal first aid: blister kit, pain reliever, your meds</span></label></li>
                 </ul>
               </div>
               <div class="gear__group">
@@ -141,10 +179,11 @@
                   <li><label class="check"><input type="checkbox" data-gear="tp"><span class="check__box" aria-hidden="true"></span><span class="check__text">Toilet paper and a zip bag to pack it out</span></label></li>
                   <li><label class="check"><input type="checkbox" data-gear="sanitizer"><span class="check__box" aria-hidden="true"></span><span class="check__text">Hand sanitizer</span></label></li>
                   <li><label class="check"><input type="checkbox" data-gear="teeth"><span class="check__box" aria-hidden="true"></span><span class="check__text">Toothbrush and travel toothpaste</span></label></li>
+                  <li><label class="check"><input type="checkbox" data-gear="lip-balm"><span class="check__box" aria-hidden="true"></span><span class="check__text">Lip balm</span></label></li>
                 </ul>
               </div>
               <div class="gear__group">
-                <h4>For the drive</h4>
+                <h4>Personal items</h4>
                 <ul class="checklist" data-required>
                   <li><label class="check"><input type="checkbox" data-gear="id"><span class="check__box" aria-hidden="true"></span><span class="check__text">Photo ID</span></label></li>
                   <li><label class="check"><input type="checkbox" data-gear="money"><span class="check__box" aria-hidden="true"></span><span class="check__text">Card or cash for gas and food on the way</span></label></li>
@@ -156,22 +195,39 @@
 
           <div class="gear__nice">
             <h3 class="gear__heading">Nice to have</h3>
-            <ul class="checklist">
-              <li><label class="check"><input type="checkbox" data-gear="poles"><span class="check__box" aria-hidden="true"></span><span class="check__text">Trekking poles <span class="check__note">Highly recommended for Day 3's 3,000 ft descent</span></span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="earplugs"><span class="check__box" aria-hidden="true"></span><span class="check__text">Earplugs <span class="check__note">We share the shelter with other hikers on night 2</span></span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="camp-shoes"><span class="check__box" aria-hidden="true"></span><span class="check__text">Camp shoes or sandals</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="pillow"><span class="check__box" aria-hidden="true"></span><span class="check__text">Inflatable pillow</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="battery"><span class="check__box" aria-hidden="true"></span><span class="check__text">Battery pack and charging cable</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="sit-pad"><span class="check__box" aria-hidden="true"></span><span class="check__text">Sit pad</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="warmers"><span class="check__box" aria-hidden="true"></span><span class="check__text">Hand warmers</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="sleep-socks"><span class="check__box" aria-hidden="true"></span><span class="check__text">Extra pair of socks just for sleeping</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="electrolytes"><span class="check__box" aria-hidden="true"></span><span class="check__text">Electrolyte packets or instant coffee</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="buff"><span class="check__box" aria-hidden="true"></span><span class="check__text">Bandana or neck gaiter</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="camera"><span class="check__box" aria-hidden="true"></span><span class="check__text">Camera</span></label></li>
-              <li><label class="check"><input type="checkbox" data-gear="cards"><span class="check__box" aria-hidden="true"></span><span class="check__text">Deck of cards or a book</span></label></li>
-            </ul>
+            <div class="gear__group">
+              <h4>On the trail</h4>
+              <ul class="checklist">
+                <li><label class="check"><input type="checkbox" data-gear="poles"><span class="check__box" aria-hidden="true"></span><span class="check__text">Trekking poles <span class="check__note">Highly recommended for Day 3's 3,000 ft descent</span></span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="rain-pants"><span class="check__box" aria-hidden="true"></span><span class="check__text">Rain pants</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="sun-hat"><span class="check__box" aria-hidden="true"></span><span class="check__text">Cap or sun hat</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="buff"><span class="check__box" aria-hidden="true"></span><span class="check__text">Bandana or neck gaiter</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="electrolytes"><span class="check__box" aria-hidden="true"></span><span class="check__text">Electrolyte packets</span></label></li>
+              </ul>
+            </div>
+            <div class="gear__group">
+              <h4>At camp</h4>
+              <ul class="checklist">
+                <li><label class="check"><input type="checkbox" data-gear="earplugs"><span class="check__box" aria-hidden="true"></span><span class="check__text">Earplugs <span class="check__note">We share the shelter with other hikers on night 2</span></span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="camp-shoes"><span class="check__box" aria-hidden="true"></span><span class="check__text">Camp shoes or sandals</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="pillow"><span class="check__box" aria-hidden="true"></span><span class="check__text">Inflatable pillow</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="bag-liner"><span class="check__box" aria-hidden="true"></span><span class="check__text">Sleeping bag liner <span class="check__note">Adds a few degrees of warmth</span></span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="sit-pad"><span class="check__box" aria-hidden="true"></span><span class="check__text">Sit pad or camp chair</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="warmers"><span class="check__box" aria-hidden="true"></span><span class="check__text">Hand warmers</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="coffee"><span class="check__box" aria-hidden="true"></span><span class="check__text">Instant coffee or tea</span></label></li>
+              </ul>
+            </div>
+            <div class="gear__group">
+              <h4>Extras</h4>
+              <ul class="checklist">
+                <li><label class="check"><input type="checkbox" data-gear="battery"><span class="check__box" aria-hidden="true"></span><span class="check__text">Battery pack and charging cable</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="camera"><span class="check__box" aria-hidden="true"></span><span class="check__text">Camera</span></label></li>
+                <li><label class="check"><input type="checkbox" data-gear="cards"><span class="check__box" aria-hidden="true"></span><span class="check__text">Deck of cards or a book</span></label></li>
+              </ul>
+            </div>
           </div>
         </div>
+        <p class="block__note">Categories follow <a href="https://www.rei.com/learn/expert-advice/backpacking-checklist.html" target="_blank" rel="noopener">REI's backpacking checklist</a>, trimmed for a four-day fall trip in the Smokies.</p>
 
         <!-- Group gear: edit the names in the "Who's bringing it" column as people claim things -->
         <div class="group-gear" id="group-gear">
@@ -183,7 +239,6 @@
                 <tr><th scope="col">Item</th><th scope="col">How many</th><th scope="col">Who's bringing it</th></tr>
               </thead>
               <tbody>
-                <tr><td>Two-person tents <span class="table__note">Used nights 1 and 3. Night 2 is in the shelter.</span></td><td>3</td><td><span class="open">Open</span></td></tr>
                 <tr><td>Backpacking stoves</td><td>2</td><td><span class="open">Open</span></td></tr>
                 <tr><td>Fuel canisters <span class="table__note">2 large (230 g) or 3–4 small (110 g)</span></td><td>2–4</td><td><span class="open">Open</span></td></tr>
                 <tr><td>Cook pots, one per stove</td><td>2</td><td><span class="open">Open</span></td></tr>
@@ -191,7 +246,6 @@
                 <tr><td>Group first-aid kit</td><td>1</td><td><span class="open">Open</span></td></tr>
                 <tr><td>Trowels for digging cat holes</td><td>2</td><td><span class="open">Open</span></td></tr>
                 <tr><td>Paper map and compass <span class="table__note">Trails Illustrated #229, Great Smoky Mountains</span></td><td>1</td><td><span class="open">Open</span></td></tr>
-                <tr><td>Satellite messenger <span class="table__note">Like a Garmin inReach, if anyone has one</span></td><td>1</td><td><span class="open">Open</span></td></tr>
                 <tr><td>Repair kit: duct tape, patches, cord</td><td>1</td><td><span class="open">Open</span></td></tr>
                 <tr><td>Spare lighters</td><td>2</td><td><span class="open">Open</span></td></tr>
                 <tr><td>Printed permit, plus a copy on a phone</td><td>1</td><td>Rickey</td></tr>
@@ -270,76 +324,76 @@
       <div class="block__inner">
         <div class="block__head">
           <h2 id="weather-title">Weather &amp; daylight</h2>
-          <p class="block__lede">The forecast for each day, at the camp where we'll sleep that night. It updates every time this page opens. Anything more than about a week out is a rough guess, so check again the night before we leave.</p>
+          <p class="block__lede">Forecasts from the National Weather Service, the source the park's own weather page uses, for the campsite where we'll sleep each night. Each day's forecast posts about a week ahead.</p>
+          <p class="wx__status" data-wx-status>Loading the National Weather Service forecast…</p>
         </div>
 
         <div class="wx-grid" data-wx-grid>
-          <article class="wx" data-wx-day="2026-10-10" data-wx-loc="1">
+          <article class="wx" data-wx-day="2026-10-10" data-wx-lat="35.6094" data-wx-lon="-83.592" data-wx-zone="crest">
             <p class="wx__date">Saturday, Oct 10</p>
             <p class="wx__where">Campsite #26, about 4,600 ft</p>
-            <p class="wx__cond" data-wx="cond">Loading forecast…</p>
+            <div class="wx__now">
+              <svg class="wx__icon" aria-hidden="true"><use data-wx="icon" href="#wx-cloud"></use></svg>
+              <p class="wx__cond" data-wx="cond">Loading forecast…</p>
+            </div>
             <dl class="wx__temps">
-              <div><dt>High</dt><dd data-wx="hi">–</dd></div>
-              <div><dt>Overnight low</dt><dd data-wx="lo">–</dd></div>
+              <div><dt data-wx="hi-label">High</dt><dd data-wx="hi">–</dd></div>
+              <div><dt data-wx="lo-label">Overnight low</dt><dd data-wx="lo">–</dd></div>
               <div><dt>Chance of rain</dt><dd data-wx="rain">–</dd></div>
             </dl>
+            <p class="wx__note" data-wx="note" hidden></p>
             <p class="wx__sun">Sunrise 7:36 am<br>Sunset 7:05 pm</p>
+            <a class="wx__link" href="https://forecast.weather.gov/MapClick.php?lat=35.6094&amp;lon=-83.592" target="_blank" rel="noopener">NWS forecast</a>
           </article>
-          <article class="wx" data-wx-day="2026-10-11" data-wx-loc="2">
+          <article class="wx" data-wx-day="2026-10-11" data-wx-lat="35.5653" data-wx-lon="-83.5426" data-wx-zone="crest">
             <p class="wx__date">Sunday, Oct 11</p>
             <p class="wx__where">Double Spring Gap Shelter, 5,507 ft</p>
-            <p class="wx__cond" data-wx="cond">Loading forecast…</p>
+            <div class="wx__now">
+              <svg class="wx__icon" aria-hidden="true"><use data-wx="icon" href="#wx-cloud"></use></svg>
+              <p class="wx__cond" data-wx="cond">Loading forecast…</p>
+            </div>
             <dl class="wx__temps">
-              <div><dt>High</dt><dd data-wx="hi">–</dd></div>
-              <div><dt>Overnight low</dt><dd data-wx="lo">–</dd></div>
+              <div><dt data-wx="hi-label">High</dt><dd data-wx="hi">–</dd></div>
+              <div><dt data-wx="lo-label">Overnight low</dt><dd data-wx="lo">–</dd></div>
               <div><dt>Chance of rain</dt><dd data-wx="rain">–</dd></div>
             </dl>
+            <p class="wx__note" data-wx="note" hidden></p>
             <p class="wx__sun">Sunrise 7:37 am<br>Sunset 7:04 pm</p>
+            <a class="wx__link" href="https://forecast.weather.gov/MapClick.php?lat=35.5653&amp;lon=-83.5426" target="_blank" rel="noopener">NWS forecast</a>
           </article>
-          <article class="wx" data-wx-day="2026-10-12" data-wx-loc="3">
+          <article class="wx" data-wx-day="2026-10-12" data-wx-lat="35.6158" data-wx-lon="-83.5297" data-wx-zone="valley">
             <p class="wx__date">Monday, Oct 12</p>
             <p class="wx__where">Campsite #24, about 2,900 ft</p>
-            <p class="wx__cond" data-wx="cond">Loading forecast…</p>
+            <div class="wx__now">
+              <svg class="wx__icon" aria-hidden="true"><use data-wx="icon" href="#wx-cloud"></use></svg>
+              <p class="wx__cond" data-wx="cond">Loading forecast…</p>
+            </div>
             <dl class="wx__temps">
-              <div><dt>High</dt><dd data-wx="hi">–</dd></div>
-              <div><dt>Overnight low</dt><dd data-wx="lo">–</dd></div>
+              <div><dt data-wx="hi-label">High</dt><dd data-wx="hi">–</dd></div>
+              <div><dt data-wx="lo-label">Overnight low</dt><dd data-wx="lo">–</dd></div>
               <div><dt>Chance of rain</dt><dd data-wx="rain">–</dd></div>
             </dl>
+            <p class="wx__note" data-wx="note" hidden></p>
             <p class="wx__sun">Sunrise 7:38 am<br>Sunset 7:02 pm</p>
+            <a class="wx__link" href="https://forecast.weather.gov/MapClick.php?lat=35.6158&amp;lon=-83.5297" target="_blank" rel="noopener">NWS forecast</a>
           </article>
-          <article class="wx" data-wx-day="2026-10-13" data-wx-loc="0">
+          <article class="wx" data-wx-day="2026-10-13" data-wx-lat="35.6537" data-wx-lon="-83.5802" data-wx-zone="valley">
             <p class="wx__date">Tuesday, Oct 13</p>
             <p class="wx__where">Hike out to Elkmont, about 2,150 ft</p>
-            <p class="wx__cond" data-wx="cond">Loading forecast…</p>
+            <div class="wx__now">
+              <svg class="wx__icon" aria-hidden="true"><use data-wx="icon" href="#wx-cloud"></use></svg>
+              <p class="wx__cond" data-wx="cond">Loading forecast…</p>
+            </div>
             <dl class="wx__temps">
-              <div><dt>High</dt><dd data-wx="hi">–</dd></div>
-              <div><dt>Back at the cars</dt><dd>~10:30 am</dd></div>
+              <div><dt data-wx="hi-label">High</dt><dd data-wx="hi">–</dd></div>
+              <div><dt>Back at the cars</dt><dd>~12 pm</dd></div>
               <div><dt>Chance of rain</dt><dd data-wx="rain">–</dd></div>
             </dl>
+            <p class="wx__note" data-wx="note" hidden></p>
             <p class="wx__sun">Sunrise 7:39 am<br>Sunset 7:01 pm</p>
+            <a class="wx__link" href="https://forecast.weather.gov/MapClick.php?lat=35.6537&amp;lon=-83.5802" target="_blank" rel="noopener">NWS forecast</a>
           </article>
         </div>
-        <p class="wx__status" data-wx-status>Forecast from Open-Meteo.</p>
-
-        <div class="wx-normals">
-          <div>
-            <h3 class="sub">Typical for October</h3>
-            <dl class="normals">
-              <div><dt>Gatlinburg, low elevation</dt><dd>73° / 43°</dd></div>
-              <div><dt>Crest of the Smokies</dt><dd>53° / 38°</dd></div>
-            </dl>
-            <p class="block__note">Average high / low from the National Park Service. The crest can run 10–20°F colder than the valleys, and October is usually the driest month.</p>
-          </div>
-          <div>
-            <h3 class="sub">Daylight</h3>
-            <p class="block__note block__note--lg">Light from about 7:10 am to 7:30 pm, which leaves 11½ hours of usable daylight. We aim to be at camp by 5 pm so dinner and the bear cables happen before dark.</p>
-          </div>
-          <div>
-            <h3 class="sub">Fall color</h3>
-            <p class="block__note block__note--lg">Color usually peaks above 4,000 ft in early to mid October, which puts Days 2 and 3 on the crest right around peak.</p>
-          </div>
-        </div>
-        <p class="block__note">Detailed forecast for the crest: <a href="https://forecast.weather.gov/MapClick.php?lat=35.5653&amp;lon=-83.5426" target="_blank" rel="noopener">National Weather Service, Double Spring Gap</a></p>
       </div>
     </section>
 
@@ -348,7 +402,7 @@
       <div class="block__inner">
         <div class="block__head">
           <h2 id="schedule-title">Schedule</h2>
-          <p class="block__lede">Target times, not promises. Hiking times include breaks at a group pace, so they're longer than the AllTrails estimates. The drive is about 265 miles, mostly on I-40 West.</p>
+          <p class="block__lede">Target times, not promises. We leave camp at 10 am each morning for a slow start. Hiking times include breaks at a group pace, so they're longer than the AllTrails estimates. The drive is about 265 miles, mostly on I-40 West.</p>
         </div>
 
         <div class="days-grid">
@@ -371,10 +425,10 @@
             <h3 class="sched__day">Sunday, Oct 11</h3>
             <p class="sched__sum">7.5 mi to Double Spring Gap Shelter</p>
             <ol class="sched__list">
-              <li><time>7:00 am</time><span>Wake up. Sunrise is at 7:37.</span></li>
-              <li><time>8:30 am</time><span>Leave camp with every bottle full. Miry Ridge has no water.</span></li>
-              <li><time>12:00 pm</time><span>Lunch on the Appalachian Trail near Silers Bald.</span></li>
-              <li><time>2:30 pm</time><span>Arrive at Double Spring Gap Shelter.</span></li>
+              <li><time>8:00 am</time><span>Wake up and make breakfast. Sunrise is at 7:37.</span></li>
+              <li><time>10:00 am</time><span>Leave camp with every bottle full. Miry Ridge has no water.</span></li>
+              <li><time>1:00 pm</time><span>Lunch on the Appalachian Trail near Silers Bald.</span></li>
+              <li><time>4:00 pm</time><span>Arrive at Double Spring Gap Shelter.</span></li>
               <li><time>7:04 pm</time><span>Sunset.</span></li>
             </ol>
           </div>
@@ -382,10 +436,10 @@
             <h3 class="sched__day">Monday, Oct 12</h3>
             <p class="sched__sum">8.7 mi, mostly downhill, to Campsite #24</p>
             <ol class="sched__list">
-              <li><time>7:00 am</time><span>Wake up. Sunrise is at 7:38.</span></li>
-              <li><time>8:30 am</time><span>Leave the shelter. Short climb on the AT, then down Goshen Prong.</span></li>
-              <li><time>12:00 pm</time><span>Lunch along Goshen Prong.</span></li>
-              <li><time>3:00 pm</time><span>Arrive at Campsite #24 by the Little River.</span></li>
+              <li><time>8:00 am</time><span>Wake up and make breakfast. Sunrise is at 7:38.</span></li>
+              <li><time>10:00 am</time><span>Leave the shelter. Short climb on the AT, then down Goshen Prong.</span></li>
+              <li><time>1:00 pm</time><span>Lunch along Goshen Prong.</span></li>
+              <li><time>4:30 pm</time><span>Arrive at Campsite #24 by the Little River.</span></li>
               <li><time>7:02 pm</time><span>Sunset.</span></li>
             </ol>
           </div>
@@ -393,80 +447,14 @@
             <h3 class="sched__day">Tuesday, Oct 13</h3>
             <p class="sched__sum">4.5 mi out, then the drive home</p>
             <ol class="sched__list">
-              <li><time>7:30 am</time><span>Wake up and pack.</span></li>
-              <li><time>8:30 am</time><span>Leave camp on the Little River Trail.</span></li>
-              <li><time>10:30 am</time><span>Back at the cars in Elkmont.</span></li>
-              <li><time>11:00 am</time><span>Text families once we have signal near Gatlinburg.</span></li>
-              <li><time>11:30 am</time><span>Real food in Gatlinburg.</span></li>
-              <li><time>12:30 pm</time><span>Leave for Greensboro.</span></li>
-              <li><time>5:30 pm</time><span>Home in Greensboro.</span></li>
+              <li><time>8:00 am</time><span>Wake up, eat and pack.</span></li>
+              <li><time>10:00 am</time><span>Leave camp on the Little River Trail.</span></li>
+              <li><time>12:00 pm</time><span>Back at the cars in Elkmont.</span></li>
+              <li><time>12:30 pm</time><span>Text families once we have signal near Gatlinburg.</span></li>
+              <li><time>1:00 pm</time><span>Real food in Gatlinburg.</span></li>
+              <li><time>2:00 pm</time><span>Leave for Greensboro.</span></li>
+              <li><time>7:00 pm</time><span>Home in Greensboro.</span></li>
             </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Safety -->
-    <section class="block block--sage" id="safety" aria-labelledby="safety-title">
-      <div class="block__inner">
-        <div class="block__head">
-          <h2 id="safety-title">Safety &amp; check-in plan</h2>
-          <p class="block__lede">For parents and anyone keeping tabs on us. There's little to no cell service on this route, so not hearing from us between Saturday and Tuesday is normal.</p>
-        </div>
-
-        <div class="cols">
-          <div>
-            <h3 class="sub">Where we'll be</h3>
-            <div class="table-wrap">
-              <table class="table table--labels">
-                <thead><tr><th scope="col">When</th><th scope="col">Where</th></tr></thead>
-                <tbody>
-                  <tr><td>Sat night</td><td>Campsite #26, Dripping Spring Mountain, about 4,600 ft</td></tr>
-                  <tr><td>Sun night</td><td>Double Spring Gap Shelter on the Appalachian Trail, 5,507 ft</td></tr>
-                  <tr><td>Mon night</td><td>Campsite #24, Rough Creek, along the Little River, about 2,900 ft</td></tr>
-                  <tr><td>Cars</td><td>Little River Trailhead, Elkmont, Great Smoky Mountains National Park</td></tr>
-                </tbody>
-              </table>
-            </div>
-
-            <h3 class="sub sub--spaced">When we'll check in</h3>
-            <ol class="steps">
-              <li><strong>Saturday, around 11:30 am:</strong> a text from Gatlinburg before we lose signal.</li>
-              <li><strong>Saturday to Tuesday:</strong> probably nothing. We may get a bar of signal up on the ridge, but don't count on it.</li>
-              <li><strong>Tuesday, around 11 am:</strong> a text once we're out and driving.</li>
-              <li><strong>Tuesday, around 5:30 pm:</strong> home.</li>
-            </ol>
-            <p class="block__note">We'll share our phone numbers with families directly instead of posting them on this public page.</p>
-          </div>
-
-          <div>
-            <div class="callout">
-              <h3>If you haven't heard from us by 6 pm on Tuesday, Oct 13</h3>
-              <ol>
-                <li>Try calling or texting the group. Someone may just have a dead phone.</li>
-                <li>Call park dispatch at <a href="tel:+18654369171">(865) 436-9171</a>.</li>
-                <li>If you think someone is hurt or in danger, call <a href="tel:911">911</a>.</li>
-              </ol>
-              <p>Tell them: a backpacking party of 5–6 on a backcountry permit under Rickey Johnson, on the Jakes Creek, Miry Ridge, Appalachian Trail, Goshen Prong and Little River loop, with cars parked at the Little River Trailhead in Elkmont, due out Tuesday morning.</p>
-            </div>
-
-            <h3 class="sub sub--spaced">Phone numbers</h3>
-            <dl class="contacts">
-              <div><dt>Emergency</dt><dd><a href="tel:911">911</a></dd></div>
-              <div><dt>Park dispatch, non-life-threatening</dt><dd><a href="tel:+18654369171">(865) 436-9171</a></dd></div>
-              <div><dt>Backcountry Office, 8 am–5 pm</dt><dd><a href="tel:+18654361297">(865) 436-1297</a></dd></div>
-              <div><dt>Nearest ER: LeConte Medical Center, 742 Middle Creek Rd, Sevierville, TN</dt><dd><a href="tel:+18654467000">(865) 446-7000</a></dd></div>
-            </dl>
-
-            <h3 class="sub sub--spaced">How we stay safe</h3>
-            <ul class="bullets">
-              <li>We hike together and regroup at every trail junction.</li>
-              <li>Everyone carries a headlamp, rain jacket and warm layers.</li>
-              <li>We carry a paper map and compass as well as offline maps on our phones.</li>
-              <li>We bring a group first-aid kit, plus a satellite messenger if anyone has one.</li>
-              <li>Food goes on the bear cables every night. Black bears are common here but rarely cause trouble when food is hung.</li>
-              <li>If the forecast looks dangerous before we leave, we'll switch to the lower backup route or reschedule.</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -496,13 +484,12 @@
             </div>
             <p class="block__note">That's 3 breakfasts, 2 trail lunches and 3 dinners, plus snacks for all four days. Three or four snacks a day is about right.</p>
 
-            <h3 class="sub sub--spaced">Ideas</h3>
-            <dl class="ideas">
-              <div><dt>Breakfast</dt><dd>Oatmeal packets with peanut butter, granola with powdered milk, breakfast bars, instant coffee</dd></div>
-              <div><dt>Lunch</dt><dd>Tortillas with peanut butter and honey, tuna or chicken packets, hard cheese and salami, crackers</dd></div>
-              <div><dt>Dinner</dt><dd>Freeze-dried meals, ramen with packet chicken, instant mashed potatoes, rice sides. Saturday can be something fresh like burritos.</dd></div>
-              <div><dt>Snacks</dt><dd>Trail mix, bars, jerky, dried fruit, candy, electrolyte drink mix</dd></div>
-            </dl>
+            <h3 class="sub sub--spaced">Cooking and bears</h3>
+            <ul class="bullets">
+              <li>Cook and eat in the campsite's cooking area by the fire ring, never in or near tents.</li>
+              <li>After dinner, everything with a scent goes on the bear cables: food, trash, toothpaste, lip balm, sunscreen.</li>
+              <li>Pack out all leftovers and trash. Don't bury or burn food.</li>
+            </ul>
           </div>
 
           <div>
@@ -515,12 +502,6 @@
             </dl>
             <p class="block__note">Filter or treat all water, even when it looks clean. Carry at least 3 liters of capacity.</p>
 
-            <h3 class="sub sub--spaced">Cooking and bears</h3>
-            <ul class="bullets">
-              <li>Cook and eat in the campsite's cooking area by the fire ring, never in or near tents.</li>
-              <li>After dinner, everything with a scent goes on the bear cables: food, trash, toothpaste, lip balm, sunscreen.</li>
-              <li>Pack out all leftovers and trash. Don't bury or burn food.</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -530,8 +511,7 @@
     <section class="trail split" id="plan-a" aria-labelledby="plan-a-title">
       <div class="trail__text">
         <div class="trail__head">
-          <p class="label">The route: Plan A</p>
-          <p class="trail__count">1 of 2</p>
+          <p class="label">The route</p>
         </div>
         <h2 class="trail__title" id="plan-a-title">Jakes Creek, Miry Ridge &amp; Appalachian Trail Loop</h2>
         <p class="trail__where">Starts and ends at Elkmont, near Gatlinburg, TN</p>
@@ -587,7 +567,7 @@
             </div>
           </li>
         </ol>
-        <p class="days__scale">Bars use the same scale for both trails. The longest day of either trip is 9.1 mi.</p>
+        <p class="days__scale">Bar length shows each day's miles. The longest day is 8.7 mi.</p>
 
         <div class="tradeoffs">
           <div class="tradeoffs__col tradeoffs__col--pro">
@@ -597,7 +577,7 @@
               <li>Three different campsites: ridge, AT shelter, river</li>
               <li>Plenty of water in most sections</li>
               <li>Two climbing days, then two descending days, so the hard part is done early</li>
-              <li>The most scenic of the two: the AT crest, Silers Bald, Goshen Prong's cascades, Huskey Branch Falls</li>
+              <li>Great scenery: the AT crest, Silers Bald, Goshen Prong's cascades, Huskey Branch Falls</li>
               <li>High-country color turns first, so early October could be peak</li>
               <li>A roof for the night at the shelter, with no tents to pitch</li>
             </ul>
@@ -633,7 +613,7 @@
     </section>
 
     <!-- Backup -->
-    <section class="trail split" id="backup" aria-labelledby="backup-title">
+    <section class="trail split" id="backup" aria-labelledby="backup-title" hidden>
       <div class="trail__text">
         <div class="trail__head">
           <p class="label">If we need it: backup</p>
@@ -684,7 +664,7 @@
             </div>
           </li>
         </ol>
-        <p class="days__scale">Bars use the same scale for both trails. The longest day of either trip is 9.1 mi.</p>
+        <p class="days__scale">Bar length shows each day's miles. The longest day is 8.7 mi.</p>
 
         <div class="tradeoffs">
           <div class="tradeoffs__col tradeoffs__col--pro">
@@ -729,7 +709,7 @@
     </section>
 
     <!-- Compare -->
-    <section class="compare" id="compare" aria-labelledby="compare-title">
+    <section class="compare" id="compare" aria-labelledby="compare-title" hidden>
       <div class="compare__inner">
         <h2 id="compare-title">Plan A vs. the backup</h2>
         <p class="compare__lede">Why we picked Plan A, and what we'd be trading if we switch. The backup makes sense if Plan A's sites are full or the forecast for the crest looks bad.</p>
@@ -762,32 +742,113 @@
       </div>
     </section>
 
+    <!-- Where we'll be (last, for families) -->
+    <section class="block block--sage" id="safety" aria-labelledby="safety-title">
+      <div class="block__inner">
+        <div class="block__head">
+          <h2 id="safety-title">Where we'll be &amp; who to call</h2>
+          <p class="block__lede">For families. There's little to no cell service on the trail, so not hearing from us until Tuesday is normal.</p>
+        </div>
+
+        <div class="cols">
+          <div>
+            <h3 class="sub">Where we'll be</h3>
+            <div class="table-wrap">
+              <table class="table table--labels table--times">
+                <thead><tr><th scope="col">Day</th><th scope="col">Where</th><th scope="col">Around</th></tr></thead>
+                <tbody>
+                  <tr><td>Sat, Oct 10</td><td>Start hiking from Elkmont</td><td>12:45 pm</td></tr>
+                  <tr><td></td><td>Campsite #26, Dripping Spring Mountain, about 4,600 ft</td><td>4:30 pm</td></tr>
+                  <tr><td>Sun, Oct 11</td><td>Double Spring Gap Shelter on the Appalachian Trail, 5,507 ft</td><td>4 pm</td></tr>
+                  <tr><td>Mon, Oct 12</td><td>Campsite #24, Rough Creek, along the Little River, about 2,900 ft</td><td>4:30 pm</td></tr>
+                  <tr><td>Tue, Oct 13</td><td>Back at the cars, Little River Trailhead in Elkmont</td><td>12 pm</td></tr>
+                  <tr><td></td><td>Home in Greensboro</td><td>7 pm</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <div class="callout">
+              <h3>Get worried if you haven't heard from us by 7 pm on Tuesday, Oct 13.</h3>
+              <p>Call park dispatch first. Call 911 if you think someone is hurt or in danger.</p>
+            </div>
+
+            <h3 class="sub sub--spaced">Emergency numbers</h3>
+            <dl class="contacts">
+              <div><dt>Emergency</dt><dd><a href="tel:911">911</a></dd></div>
+              <div><dt>Park dispatch, non-life-threatening</dt><dd><a href="tel:+18654369171">(865) 436-9171</a></dd></div>
+              <div><dt>Backcountry Office, 8 am–5 pm</dt><dd><a href="tel:+18654361297">(865) 436-1297</a></dd></div>
+              <div><dt>Nearest ER: LeConte Medical Center, 742 Middle Creek Rd, Sevierville, TN</dt><dd><a href="tel:+18654467000">(865) 446-7000</a></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="links">
     <div class="footer__inner">
-      <div>
-        <h2 class="footer__title">Sources</h2>
-        <ul>
-          <li><a href="https://www.alltrails.com/explore/custom-routes/jakes-creek-via-miry-ridge-trail-and-appalachian-trail-loop-71d7940?u=i&amp;sh=4dlpd8" target="_blank" rel="noopener">AllTrails: Plan A custom route</a> and <a href="https://www.alltrails.com/explore/custom-routes/custom-route-rabbit-creek-and-abrams-creek-loop-77ac2ee?u=i&amp;sh=4dlpd8" target="_blank" rel="noopener">backup custom route</a></li>
-          <li><a href="https://www.hikingproject.com/trail/7023799/jakes-creek-at-loop" target="_blank" rel="noopener">Hiking Project: Jakes Creek AT Loop</a></li>
-          <li><a href="https://www.smokymountains.org/?p=5123" target="_blank" rel="noopener">SmokyMountains.org: Rabbit Creek Trail</a></li>
-          <li><a href="https://www.theoutbound.com/tennessee/hiking/little-river-and-goshen-prong-trail" target="_blank" rel="noopener">The Outbound: Little River and Goshen Prong</a></li>
-          <li><a href="https://sherpaguides.com/tennessee/appalachian_trail/davenport_gap.html" target="_blank" rel="noopener">Sherpa Guides: AT shelters in the Smokies</a></li>
-          <li><a href="https://www.nps.gov/grsm/planyourvisit/fallcolor.htm" target="_blank" rel="noopener">NPS: Fall colors</a> and <a href="https://www.nps.gov/grsm/planyourvisit/fees.htm" target="_blank" rel="noopener">fees and parking tags</a></li>
-          <li><a href="https://www.wvlt.tv/2026/04/29/backcountry-camping-permits-great-smoky-mountains-national-park-changing/" target="_blank" rel="noopener">WVLT: 2026 backcountry permit changes</a></li>
-          <li><a href="https://www.nps.gov/grsm/planyourvisit/backcountry-camping.htm" target="_blank" rel="noopener">NPS: Backcountry camping rules</a>, <a href="https://www.nps.gov/grsm/planyourvisit/emergency.htm" target="_blank" rel="noopener">emergency info</a> and <a href="https://www.nps.gov/grsm/planyourvisit/weather.htm" target="_blank" rel="noopener">weather averages</a></li>
-          <li>Live forecast: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Weather data by Open-Meteo.com</a> (CC BY 4.0)</li>
-        </ul>
+      <h2 class="footer__heading">Helpful links</h2>
+      <div class="links">
+        <div>
+          <h3 class="footer__title">Permits &amp; park info</h3>
+          <ul>
+            <li><a href="https://www.recreation.gov/permits/4675347" target="_blank" rel="noopener">Backcountry permits on Recreation.gov</a></li>
+            <li><a href="https://www.nps.gov/grsm/planyourvisit/fees.htm" target="_blank" rel="noopener">Parking tags</a></li>
+            <li><a href="https://www.nps.gov/grsm/planyourvisit/backcountry-camping.htm" target="_blank" rel="noopener">Backcountry camping rules</a></li>
+            <li><a href="https://www.nps.gov/grsm/planyourvisit/conditions.htm" target="_blank" rel="noopener">Trail and road closures</a></li>
+            <li><a href="https://www.nps.gov/grsm/planyourvisit/emergency.htm" target="_blank" rel="noopener">Park emergency info</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Weather</h3>
+          <ul>
+            <li><a href="https://forecast.weather.gov/MapClick.php?lat=35.5653&amp;lon=-83.5426" target="_blank" rel="noopener">NWS forecast for the crest</a></li>
+            <li><a href="https://www.nps.gov/grsm/planyourvisit/weather.htm" target="_blank" rel="noopener">Smokies weather by season</a></li>
+            <li><a href="https://www.nps.gov/grsm/planyourvisit/fallcolor.htm" target="_blank" rel="noopener">Fall color guide</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Maps &amp; routes</h3>
+          <ul>
+            <li><a href="https://www.alltrails.com/explore/custom-routes/jakes-creek-via-miry-ridge-trail-and-appalachian-trail-loop-71d7940?u=i&amp;sh=4dlpd8" target="_blank" rel="noopener">Plan A on AllTrails</a></li>
+            <li><a href="https://www.nps.gov/grsm/planyourvisit/maps.htm" target="_blank" rel="noopener">Official park maps</a></li>
+            <li><a href="https://www.hikingproject.com/trail/7023799/jakes-creek-at-loop" target="_blank" rel="noopener">Hiking Project: Jakes Creek AT Loop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Packing &amp; skills</h3>
+          <ul>
+            <li><a href="https://www.rei.com/learn/expert-advice/backpacking-checklist.html" target="_blank" rel="noopener">REI backpacking checklist</a></li>
+            <li><a href="https://www.rei.com/learn/expert-advice/ten-essentials.html" target="_blank" rel="noopener">REI: The Ten Essentials</a></li>
+            <li><a href="https://lnt.org/why/7-principles/" target="_blank" rel="noopener">Leave No Trace principles</a></li>
+            <li><a href="https://www.nps.gov/grsm/learn/nature/black-bears.htm" target="_blank" rel="noopener">Black bears in the Smokies</a></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <h2 class="footer__title">Photos</h2>
-        <ul>
-          <li><a href="https://commons.wikimedia.org/wiki/File:The_Smoky_Mountains_(51955706990).jpg" target="_blank" rel="noopener">“The Smoky Mountains”</a> by Mark Collins, CC BY 2.0</li>
-          <li><a href="https://commons.wikimedia.org/wiki/File:Little-river-three-forks.jpg" target="_blank" rel="noopener">“Little River at Three Forks”</a> by Brian Stansberry, CC BY 3.0</li>
-          <li><a href="https://commons.wikimedia.org/wiki/File:Abrams_Creek,_October_2013--Warren_Bielenberg_(39422681854).jpg" target="_blank" rel="noopener">“Abrams Creek, October 2013”</a> by Warren Bielenberg, NPS, public domain</li>
-        </ul>
-        <p class="footer__fine">Trail info gathered October 2026. Conditions change, so check with the park before we go.</p>
+
+      <div class="footer__credits">
+        <div>
+          <h3 class="footer__title">Trail research</h3>
+          <ul>
+            <li><a href="https://www.smokymountains.org/?p=5123" target="_blank" rel="noopener">SmokyMountains.org: Rabbit Creek Trail</a></li>
+            <li><a href="https://www.theoutbound.com/tennessee/hiking/little-river-and-goshen-prong-trail" target="_blank" rel="noopener">The Outbound: Little River and Goshen Prong</a></li>
+            <li><a href="https://sherpaguides.com/tennessee/appalachian_trail/davenport_gap.html" target="_blank" rel="noopener">Sherpa Guides: AT shelters in the Smokies</a></li>
+            <li><a href="https://www.wvlt.tv/2026/04/29/backcountry-camping-permits-great-smoky-mountains-national-park-changing/" target="_blank" rel="noopener">WVLT: 2026 backcountry permit changes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Photos &amp; data</h3>
+          <ul>
+            <li><a href="https://commons.wikimedia.org/wiki/File:The_Smoky_Mountains_(51955706990).jpg" target="_blank" rel="noopener">“The Smoky Mountains”</a> by Mark Collins, CC BY 2.0</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Little-river-three-forks.jpg" target="_blank" rel="noopener">“Little River at Three Forks”</a> by Brian Stansberry, CC BY 3.0</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Abrams_Creek,_October_2013--Warren_Bielenberg_(39422681854).jpg" target="_blank" rel="noopener">“Abrams Creek, October 2013”</a> by Warren Bielenberg, NPS, public domain</li>
+            <li>Forecasts: <a href="https://www.weather.gov/" target="_blank" rel="noopener">National Weather Service</a></li>
+          </ul>
+          <p class="footer__fine">Trail info gathered October 2026. Conditions change, so check with the park before we go.</p>
+        </div>
       </div>
     </div>
   </footer>

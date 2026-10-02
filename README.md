@@ -1,6 +1,6 @@
 # jsc-fall-backpacking
 
-A one-page trip guide for the JSC fall backpacking trip in Great Smoky Mountains National Park, October 10–13, 2026. It covers the packing list, group gear, permits, a live weather forecast, the schedule, a safety and check-in plan for families, food and water, and the route (Plan A: Jakes Creek, Miry Ridge & AT Loop, with Rabbit Creek & Abrams Creek as the backup).
+A one-page trip guide for the JSC fall backpacking trip in Great Smoky Mountains National Park, October 10–13, 2026. It covers the packing list, group gear, permits, a live weather forecast, the schedule, where we'll be and who to call in an emergency, food and water, and the route (Jakes Creek, Miry Ridge & AT Loop). The Rabbit Creek & Abrams Creek backup and the comparison table are still in `index.html` but hidden; remove the `hidden` attribute on those sections to bring them back.
 
 Plain HTML, CSS and JS with no build step: `index.html`, `styles.css`, `script.js`.
 
@@ -22,7 +22,7 @@ Then open http://localhost:8123.
 ## Updating the guide
 
 - **Group gear:** the "Who's bringing it" column is in `index.html`. Replace `<span class="open">Open</span>` with a name.
-- **Weather:** loads live from Open-Meteo when the page opens. Nothing to update.
+- **Weather:** loads the National Weather Service forecast for each campsite when the page opens. NWS forecasts about 7 days out; before that the cards show the park's October averages. Nothing to update.
 
 ## Swapping photos
 

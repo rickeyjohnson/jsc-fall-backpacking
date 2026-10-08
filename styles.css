@@ -659,6 +659,18 @@ p { margin: 0; }
   border-top: 2px solid var(--ink);
   border-bottom: 0;
 }
+.done {
+  display: inline-block;
+  padding: 0.1rem 0.65rem;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--forest);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  vertical-align: 0.15em;
+}
+.sub .done { margin-left: 0.5rem; }
 .open {
   display: inline-block;
   padding: 0.05rem 0.65rem;

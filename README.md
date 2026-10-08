@@ -22,6 +22,7 @@ Then open http://localhost:8123.
 ## Updating the guide
 
 - **Group gear:** the "Who's bringing it" column is in `index.html`. Replace `<span class="open">Open</span>` with a name.
+- **After editing `styles.css` or `script.js`:** bump the `?v=` date on their links at the top and bottom of `index.html` so browsers load the new version.
 - **Weather:** loads a forecast for each campsite when the page opens: National Weather Service once a day is within about 7 days, Open-Meteo before that. Nothing to update.
 
 ## Swapping photos

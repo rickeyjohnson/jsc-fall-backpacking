@@ -1,6 +1,6 @@
 # jsc-fall-backpacking
 
-A one-page trip guide for the JSC fall backpacking trip in Great Smoky Mountains National Park, October 10–13, 2026. It covers the packing list, group gear, permits, a live weather forecast, the schedule, where we'll be and who to call in an emergency, food and water, and the route (Jakes Creek, Miry Ridge & AT Loop). The Rabbit Creek & Abrams Creek backup and the comparison table are still in `index.html` but hidden; remove the `hidden` attribute on those sections to bring them back.
+A one-page trip guide for the JSC fall backpacking trip in Great Smoky Mountains National Park, October 10–13, 2026. It covers the packing list, group gear, permits, a live weather forecast, the schedule, where we'll be and who to call in an emergency, food and water, and the route: a night at Elkmont Campground, then the Middle Prong, Lynn Camp Prong & AT Loop from Tremont. The route was changed from the Jakes Creek, Miry Ridge & AT Loop because of the weather. The Rabbit Creek & Abrams Creek backup and the comparison table are still in `index.html` but hidden; remove the `hidden` attribute on those sections to bring them back.
 
 Plain HTML, CSS and JS with no build step: `index.html`, `styles.css`, `script.js`.
 
@@ -23,7 +23,7 @@ Then open http://localhost:8123.
 
 - **Group gear:** the "Who's bringing it" column is in `index.html`. Replace `<span class="open">Open</span>` with a name.
 - **After editing `styles.css` or `script.js`:** bump the `?v=` date on their links at the top and bottom of `index.html` so browsers load the new version.
-- **Weather:** loads a forecast for each campsite when the page opens: National Weather Service once a day is within about 7 days, Open-Meteo before that. Nothing to update.
+- **Weather:** loads a forecast for each night's camp (Elkmont, Campsite #26, Derrick Knob Shelter, then the Middle Prong Trailhead) when the page opens: National Weather Service once a day is within about 7 days, Open-Meteo before that. Nothing to update.
 
 ## Swapping photos
 
